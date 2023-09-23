@@ -6,47 +6,27 @@
 					center right;
 				background-size: cover;
 			"
-			class="dtc v-mid cover ph3 ph4-m ph5-l">
-			<div class="flex justify-around">
-				<div>
-					<h1 class="f2 f-subheadline-l measure lh-title nb1 fw9">Editr</h1>
-					<h2 class="f6 fw6 black">
-						Store, transform and update images using Xata (File Attachments)
-					</h2>
-				</div>
-				<div class="mv2">
-					<div v-if="userHasAccount">
-						<Signin @go-to-sign-up="switchToSignUp" />
-					</div>
-					<div v-else>
-						<Signup @user-has-account="handleUserHasAccount" />
-					</div>
-				</div>
+			class="dtc cover ph3 ph4-m ph5-l tc">
+			<div class="tc mt4 mb5">
+				<h1 class="f2 f-subheadline-l measure lh-title nb1 fw9">Editr</h1>
+				<h2 class="f6 fw6 black">
+					Store, transform and update images using Xata (File Attachments)
+				</h2>
 			</div>
+			<Uploadcontainer />
 		</div>
 	</header>
 </template>
 <script>
-	import Signin from "@/components/Signin.vue";
-	import Signup from "@/components/Signup.vue";
+	import Uploadcontainer from "@/components/Uploadcontainer.vue";
 
 	export default {
 		components: {
-			Signin,
-			Signup,
+			Uploadcontainer,
 		},
 		data() {
-			return {
-				userHasAccount: false,
-			};
+			return {};
 		},
-		methods: {
-			handleUserHasAccount(value) {
-				this.userHasAccount = value;
-			},
-			switchToSignUp() {
-				this.userHasAccount = false;
-			},
-		},
+		methods: {},
 	};
 </script>
