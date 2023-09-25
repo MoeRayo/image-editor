@@ -8,7 +8,9 @@
 			"
 			class="dtc cover ph3 ph4-m ph5-l tc">
 			<div class="tc mt4 mb5">
-				<h1 class="f2 f-subheadline-l measure lh-title nb1 fw9">Editr</h1>
+				<h1 class="f2 f-subheadline-l measure lh-title nb1 fw9">
+					X-Transformr
+				</h1>
 				<h2 class="f6 fw6 black">
 					Store, transform and update images using Xata (File Attachments)
 				</h2>

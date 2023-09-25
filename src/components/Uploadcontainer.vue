@@ -101,7 +101,6 @@
 
 <script>
 	import { upload } from "@/utils/file-upload.service.js";
-	import { wait } from "@/utils/wait.js";
 	import { getXataClient } from "@/xata";
 	import { transformImage } from "@xata.io/client";
 	import debounce from "lodash/debounce";
@@ -115,7 +114,7 @@
 	export default {
 		data() {
 			return {
-				addedImages: [],
+				uploadedImages: [],
 				uploadError: null,
 				currentStatus: null,
 				uploadFieldName: "photos",
@@ -149,16 +148,15 @@
 			reset() {
 				// reset form to initial state
 				this.currentStatus = STATUS_INITIAL;
-				this.addedImages = [];
+				this.uploadedImages = [];
 				this.uploadError = null;
 			},
 			save(formData) {
 				// upload data to the server
 				this.currentStatus = STATUS_SAVING;
 				upload(formData)
-					.then(wait(2000)) //delaying the promise
 					.then((x) => {
-						this.addedImages = [].concat(x);
+						this.uploadedImages = [].concat(x);
 						this.uploadImageToXata();
 						this.currentStatus = STATUS_SUCCESS;
 					})
@@ -179,14 +177,14 @@
 				this.save(formData);
 			},
 			prepareFormData() {
-				const parts = this.addedImages[0].url.split(",");
+				const parts = this.uploadedImages[0].url.split(",");
 				const metaDataMatch = parts[0].match(/^data:(.*?);base64/);
 				const metaData = metaDataMatch[1];
 				const base64Data = parts[1];
 				const imageDataObject = {
 					mediaType: metaData,
 					base64Content: base64Data,
-					name: this.addedImages[0].fileName,
+					name: this.uploadedImages[0].fileName,
 					enablePublicUrl: true,
 				};
 				// Push the object to the imageDataArray

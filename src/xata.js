@@ -4,15 +4,6 @@ import { buildClient } from "@xata.io/client";
 /** @type { SchemaTables } */
 const tables = [
 	{ name: "images", columns: [{ name: "image", type: "file[]" }] },
-	{
-		name: "users",
-		columns: [
-			{ name: "first_name", type: "string" },
-			{ name: "last_name", type: "string" },
-			{ name: "email", type: "string" },
-			{ name: "password", type: "string" },
-		],
-	},
 ];
 /** @type { import('../../client/src').ClientConstructor<{}> } */
 const DatabaseClient = buildClient();
