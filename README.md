@@ -1,4 +1,4 @@
-# xata-image-editor
+# Xata Image Transformer
 
 This template should help get you started developing with Vue 3 in Vite.
 
@@ -27,3 +27,7 @@ npm run dev
 ```sh
 npm run build
 ```
+
+### Environemnt Variables
+
+Create a `.env` file to track `VITE_XATA_API_KEY`
