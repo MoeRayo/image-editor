@@ -9,7 +9,7 @@ const tables = [
 const DatabaseClient = buildClient();
 const defaultOptions = {
 	enableBrowser: true,
-	apiKey: "xau_EfBK1uqrJY3ZpthqNj5plNRQwNzqfBBJ1",
+	apiKey: import.meta.env.VITE_XATA_API_KEY,
 	databaseURL:
 		"https://Olufunke-Moronfolu-s-workspace-vj48pf.us-east-1.xata.sh/db/image-transformation",
 };
